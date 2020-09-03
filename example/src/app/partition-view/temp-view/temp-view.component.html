@@ -1,0 +1,7 @@
+<div [style]="style()">
+  <div>{{temp.value}}</div>
+  <div *ngFor="let tune of scale" [style]="noteStyle(tune)">
+    {{tune}}</div>
+
+
+</div>

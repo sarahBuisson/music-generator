@@ -1,0 +1,12 @@
+
+<a (click)="sampleMusiqueService.randomRythme()">random rhytme</a><br/>
+<a (click)="sampleMusiqueService.randomRythmeChords()">random randomRythmeChords</a><br/>
+<a (click)="sampleMusiqueService.regularRythmeChords()">random regularRythmeChords</a><br/>
+<a (click)="currentPartition=sampleMusiqueService.fullScale()">fullGame</a><br/>
+<a (click)="currentPartition=(gameMusiqueService.gameMusicRandom())">gameMusicRandom</a><br/>
+<a (click)="currentPartition=(gameMusiqueService.menuMusicRandom())">menuMusicRandom</a><br/>
+<a (click)="currentPartition=(sampleMusiqueService.sampleDescendante())">sampleDescendante</a><br/>
+
+
+
+<app-partition-view [partitionForms]="currentPartition" (click)="playc()"></app-partition-view>

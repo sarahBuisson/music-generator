@@ -1,0 +1,22 @@
+.vertical {
+  display: inline-block;
+  min-width: auto;
+  height: auto;
+}
+.musicForm{
+  border-left: 1px black solid;
+  border-bottom: 1px black solid;
+
+}
+.note {
+  display: block;
+}
+
+.note:nth-child(even) {
+  background: aliceblue;
+}
+
+.temp {
+  display: inline-block;
+  min-width: 15px
+}
