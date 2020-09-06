@@ -5,7 +5,6 @@ export function randomRhythmOfSize(size, patterns = this.availablePattern) {
     while (freePlace > 0) {
         let newPattern = randomFromArray(patterns.filter((p) => this.durationArray(p) <= freePlace));
         if (!newPattern) {
-            console.log(freePlace);
             break;
         }
         freePlace -= this.durationArray(newPattern);

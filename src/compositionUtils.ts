@@ -98,9 +98,6 @@ export function insertResolutionAtEndIfNeed(notes: Array<Note>, possibilites: Ar
     let resolution = chooseMethode(possibilites, () => 0,
       [isSameSens(last(notes, 1).tune, last(notes).tune), isConsonnanteOf, isInIntervalDegres(-intervalDegres, intervalDegres)],
       {previousTune: dissonante})
-    console.log(dissonante)
-    console.log(possibilites)
-    console.log(resolution)
     if (!resolution) {
       //then we change the dissonante instead.
       let newDissonante = chooseMethode(possibilites, () => 0, [
@@ -194,16 +191,13 @@ export function flatPartition(form: Array<any>): Array<Note> {
 }
 
 export function fillWithRandomNote(mainRhytme, mainNotes) {
-  console.log(mainNotes)
 
   return mapMultiLevel(mainRhytme, duration => {
-    console.log(randomFromArray(mainNotes))
     return new Note(randomFromArray(mainNotes), duration)
   });
 }
 
 export function fillWithRandomNoteEndedWithDissonanteConsonante(mainRhythme, mainNotes) {
-  console.log(mainNotes)
   let result = mainRhythme.map((pattern) => {
     return pattern.map(duration => {
       return new Note(randomFromArray(mainNotes), duration)
@@ -211,7 +205,6 @@ export function fillWithRandomNoteEndedWithDissonanteConsonante(mainRhythme, mai
   });
 
   let flat = flatPartition(result);
-  console.log(flat)
   if (flat.length >= 2) {
     let consonnance = getConsonnanceOf(last(flat).tune, mainNotes);
     if(!consonnance)
@@ -226,7 +219,6 @@ export function fillWithRandomNoteEndedWithDissonanteConsonante(mainRhythme, mai
     flat[2].tune = dissonance
 
   }
-  console.log(flat)
   return result
 
 }

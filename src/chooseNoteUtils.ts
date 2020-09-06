@@ -51,7 +51,6 @@ export function getBestsWhoRespect<T>(possibilities: Array<T>, evaluate: (a: T) 
 
 
 export function getRandomFromBestsWhoRespect<T>(possibilities: Array<T>, evaluate: (a: T) => number, filters: Array<(n1: T, n2: ContextType<T>) => boolean>, context: ContextType<T>): T {
-  console.log(context)
   return randomFromArray(getBestsWhoRespect(possibilities, evaluate, filters, context))
 }
 

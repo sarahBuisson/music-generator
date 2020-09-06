@@ -38,7 +38,6 @@ export function getBestsWhoRespect(possibilities, evaluate, filters, context) {
     return filterMax(filtereds, evaluate);
 }
 export function getRandomFromBestsWhoRespect(possibilities, evaluate, filters, context) {
-    console.log(context);
     return randomFromArray(getBestsWhoRespect(possibilities, evaluate, filters, context));
 }
 export function getFirstFromBestsWhoRespect(possibilities, evaluate, filters, context) {
