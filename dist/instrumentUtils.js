@@ -221,10 +221,10 @@ export function play(partition) {
     console.log("play");
     console.log(flatpartition);
     let now = tone.now();
-    const instrument = this.pianoOld;
+    const instrument = instrumentSamples.pianoOld;
     for (let i = 0; i < 1; i++) {
         flatpartition.forEach((n) => {
-            now = this.playNote(instrument, n, now, 1.2);
+            now = playNote(instrument, n, now, 1.2);
         });
     }
 }
