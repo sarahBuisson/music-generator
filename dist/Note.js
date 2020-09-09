@@ -1,4 +1,8 @@
 export class Note {
+    constructor(tune, value) {
+        this.tune = tune;
+        this.value = value;
+    }
     set tune(v) {
         this._tune = v;
         if (v == undefined) {
@@ -18,10 +22,6 @@ export class Note {
     }
     get value() {
         return this._value;
-    }
-    constructor(tune, value) {
-        this.tune = tune;
-        this.value = value;
     }
     toJson() {
         return JSON.stringify({

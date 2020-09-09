@@ -2,7 +2,7 @@ import * as tone from "tone/build/tone.js";
 import { duration } from "./rhythmUtils";
 import { flatPartition } from "./compositionUtils";
 export const instrumentSamples = {
-    flute: new tone.PolySynth(tone.MonoSynth, {
+    flute: () => new tone.PolySynth(tone.MonoSynth, {
         volume: -8,
         oscillator: {
             type: "square8"
@@ -21,8 +21,8 @@ export const instrumentSamples = {
             baseFrequency: 300,
             octaves: 4
         }
-    }).toDestination(),
-    pianoOld: new tone.FMSynth({
+    }),
+    pianoOld: () => new tone.FMSynth({
         "volume": 0,
         "detune": 0,
         "portamento": 5,
@@ -56,8 +56,8 @@ export const instrumentSamples = {
             "sustain": 1
         },
         "modulationIndex": 0.22
-    }).toDestination(),
-    trompette: new tone.FMSynth({
+    }),
+    trompette: () => new tone.FMSynth({
         modulationIndex: 12.22,
         envelope: {
             attack: 0.01,
@@ -70,8 +70,8 @@ export const instrumentSamples = {
             attack: 0.2,
             decay: 0.05
         }
-    }).toDestination(),
-    hautbois: new tone.PolySynth(tone.MonoSynth, {
+    }),
+    hautbois: () => new tone.PolySynth(tone.MonoSynth, {
         volume: -8,
         oscillator: {
             type: "square8"
@@ -90,8 +90,8 @@ export const instrumentSamples = {
             baseFrequency: 300,
             octaves: 4
         }
-    }).toDestination(),
-    piano: new tone.AMSynth({
+    }),
+    piano: () => new tone.AMSynth({
         harmonicity: 2.5,
         oscillator: {
             type: "sawtooth7"
@@ -110,7 +110,7 @@ export const instrumentSamples = {
             decay: 0.0501,
             sustain: 1,
         }
-    }).toDestination(),
+    }),
     something: new tone.AMSynth({
         harmonicity: 2.5,
         oscillator: {
@@ -129,8 +129,8 @@ export const instrumentSamples = {
             attack: 1,
             decay: 0.501
         }
-    }).toDestination(),
-    goodPiano: new tone.AMSynth({
+    }),
+    goodPiano: () => new tone.AMSynth({
         harmonicity: 2.5,
         oscillator: {
             type: "sawtooth7"
@@ -148,9 +148,9 @@ export const instrumentSamples = {
             attack: 1,
             decay: 0.501
         }
-    }).toDestination(),
+    }),
     //look a lot like a piano
-    likeAPiano: new tone.AMSynth({
+    likeAPiano: () => new tone.AMSynth({
         harmonicity: 2.5,
         oscillator: {
             type: "fatsawtooth3"
@@ -168,8 +168,8 @@ export const instrumentSamples = {
             attack: 0.5,
             decay: 0.01
         }
-    }).toDestination(),
-    som: new tone.AMSynth({
+    }),
+    som: () => new tone.AMSynth({
         "volume": 1,
         "detune": 1,
         "portamento": 0,
@@ -216,15 +216,25 @@ export function playNote(instrument, note, now, tempo = 1) {
     }
     return now;
 }
-export function play(partition) {
+export function play(partition, tempo = 1) {
     let flatpartition = flatPartition(partition);
-    console.log("play");
-    console.log(flatpartition);
     let now = tone.now();
     const instrument = instrumentSamples.pianoOld;
     for (let i = 0; i < 1; i++) {
         flatpartition.forEach((n) => {
-            now = playNote(instrument, n, now, 1.2);
+            now = playNote(instrument, n, now);
         });
     }
+}
+/**
+ * convert to tone class "Part"
+ * @param instrument
+ * @param partition
+ */
+export function toTonePart(instrument, partition, tempo = 1) {
+    let flatpartition = flatPartition(partition);
+    let timeToPlay = 0;
+    return new tone.Part((time, note) => {
+        timeToPlay += playNote(instrument, note, timeToPlay, 1.2);
+    }, flatpartition.map((note) => [0, note]));
 }
