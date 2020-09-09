@@ -10,7 +10,7 @@ export declare function getLevel(tune1: any): number;
 export declare function getLevelDegres(tune1: any): number;
 export declare function intervaleDemiTon(tune1: any, tune2: any): number;
 export declare function intervaleDegres(tune1: any, tune2: any): number;
-export declare function consonnanceLevel(tune1: string, tune2: string): 0 | 1 | -1 | 2 | -2;
+export declare function consonnanceLevel(tune1: string, tune2: string): 1 | 0 | -1 | 2 | -2;
 export declare function randomTune(): string;
 export declare function getDissonanceOf(tune: any, possibilites?: string[]): string;
 export declare function getGameNumber(tune: any): number;

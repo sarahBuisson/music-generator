@@ -65,7 +65,7 @@ export class SampleMusiqueService {
 
 
   public randomMusicAngoissante() {
-    const instrument = instrumentSamples.piano;
+    const instrument = instrumentSamples.piano();
 
     let {intro1, intro2, intro3, dissonante1, resolution1, resolution1Bis, conclusionChords, preparation} = this.extractAngoissanteNotes();
     console.log({intro1, intro2, intro3, dissonante1, resolution1, resolution1Bis, conclusionChords, preparation})
@@ -97,7 +97,7 @@ export class SampleMusiqueService {
 
 
   public randomMusicAngoissante2() {
-    const instrument = instrumentSamples.piano;
+    const instrument = instrumentSamples.piano();
     let {intro1, intro2, intro3, dissonante1, resolution1, resolution1Bis, conclusionChords} = this.extractAngoissanteNotes();
 
     console.log(intro1 + " " + intro2 + " " + intro3)
@@ -149,7 +149,7 @@ export class SampleMusiqueService {
 
 
   randomMusic() {
-    const instrument = instrumentSamples.piano;
+    const instrument = instrumentSamples.piano();
 
 
     let {intro1, intro2, intro3, dissonante1, resolution1, resolution1Bis, conclusionChords} = this.extractAngoissanteNotes();
@@ -240,8 +240,6 @@ export class SampleMusiqueService {
 
   fullScale() {
 
-    const instrument = instrumentSamples.piano
-    let now = tone.now()
     return  getNNextAscendente('D2',30).map(n=>new Note(n,"4n"));
 
   }

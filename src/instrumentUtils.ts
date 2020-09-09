@@ -235,7 +235,8 @@ export function playNote(instrument, note: Note, now: number, tempo = 1): number
 export function play(partition: Array<any>, tempo = 1) {
     let flatpartition = flatPartition(partition)
     let now = tone.now()
-    const instrument = instrumentSamples.pianoOld;
+    const instrument = instrumentSamples.pianoOld();
+    instrument.toDestination()
     for (let i = 0; i < 1; i++) {
         flatpartition.forEach((n) => {
             now = playNote(instrument, n, now)
