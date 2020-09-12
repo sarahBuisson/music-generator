@@ -12,5 +12,5 @@ export declare function isAtLessThanDegres(numberOfDegre: any): (tune2: any, con
 export declare function isInIntervalDegres(min?: number, max?: number): (newTune: any, context: any) => boolean;
 export declare function isInIntervalConsonnance(min?: number, max?: number): (newTune: any, context: any) => boolean;
 export declare function forAll(method: any): (newTune: any, context: {
-    allTunes: string[];
+    allTunes: Array<string>;
 }) => boolean;

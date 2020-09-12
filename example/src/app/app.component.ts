@@ -6,7 +6,7 @@ import {InstrumentService} from "./service/instrument.service";
 import {GameMusiqueService} from "./service/game-musique.service";
 import {SampleMusiqueService} from "./service/sample-musique.service";
 import {play} from "music-generator/dist/instrumentUtils";
-import * as tone from "tone/build/tone.js";
+import * as tone from "tone";
 
 @Component({
   selector: 'app-root',

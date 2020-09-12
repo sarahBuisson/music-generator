@@ -5,7 +5,7 @@ import {
   getRandomTuneFromWhoRespectAll,
 } from "music-generator/dist/chooseNoteUtils"
 
-import * as tone from "tone/build/tone.js";
+import * as tone from "tone";
 import {
   isConsonnanteOf,
   isDescendanceOf,

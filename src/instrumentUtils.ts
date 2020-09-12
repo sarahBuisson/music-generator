@@ -1,4 +1,5 @@
-import * as tone from "tone/build/tone.js";
+// @ts-ignore
+import * as tone from 'tone';
 import {Note} from "./Note";
 import {duration} from "./rhythmUtils";
 import {flatPartition} from "./compositionUtils";
