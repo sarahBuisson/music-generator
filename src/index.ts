@@ -30,3 +30,7 @@ import * as rhythmUtils from './rhythmUtils';
 
 export {rhythmUtils};
 
+import * as selector from './harmonique/selector';
+
+export {selector};
+

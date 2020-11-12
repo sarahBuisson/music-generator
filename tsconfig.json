@@ -1,15 +1,25 @@
 {
   "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
     "declaration": true,
-    "outDir": "./dist",
-    "target": "es2015",
-    "module": "es2020"
+    "sourceMap": true,
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "lib": ["es2017", "dom"],
+    "suppressImplicitAnyIndexErrors": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "baseUrl": "./src",
+    "moduleResolution": "node"
   },
   "files": [
-    "src/index.ts"
+    "src/index.ts",
+    "src/utils.ts"
   ],
   "include": [
-    "src/**/*.d.ts",
-    "src/**/*.ts"
-  ]
+    "src/**/*.d.ts"
+  ],
+  "exclude": ["node_modules", "dist", "example"]
 }

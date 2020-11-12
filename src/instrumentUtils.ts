@@ -255,7 +255,7 @@ export function toTonePart(instrument, partition: Array<any>, tempo = 1) {
     let flatpartition = flatPartition(partition)
     let timeToPlay = 0;
     return new tone.Part((time, note) => {
-        timeToPlay += playNote(instrument, note, timeToPlay, 1.2)
+        timeToPlay += playNote(instrument, note as Note, timeToPlay, 1.2)
     }, flatpartition.map((note) => [0, note]));
 }
 

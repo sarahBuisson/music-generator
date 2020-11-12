@@ -1,6 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {Note} from "music-generator/dist/Note";
-import {duration} from "music-generator/dist/rhythmUtils";
+import {Note, rhythmUtils } from "music-generator";
 
 @Component({
   selector: 'app-temp-view',
@@ -19,8 +18,8 @@ export class TempViewComponent implements OnInit {
   style() {
 
     return {
-      minWidth: "" + (duration(this.temp.value) * 50) + " px",
-      width: "" + (duration(this.temp.value) * 50) + " px",
+      minWidth: "" + (rhythmUtils.duration(this.temp.value) * 50) + " px",
+      width: "" + (rhythmUtils.duration(this.temp.value) * 50) + " px",
 
       display: "inline-block"
     }

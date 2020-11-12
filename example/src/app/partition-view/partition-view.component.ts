@@ -1,6 +1,5 @@
 import {Component, OnInit, Input, OnChanges} from '@angular/core';
-import {flatPartition} from "music-generator/dist/compositionUtils";
-import {getLevel, getSuroundingTunes} from "music-generator/dist/harmoniqueUtils";
+import {compositionUtils, harmoniqueUtils} from "music-generator";
 
 @Component({
   selector: 'app-partition-view',
@@ -28,8 +27,8 @@ export class PartitionViewComponent implements OnInit, OnChanges {
     else
     if (this.partitionForms) {
       console.log(this.partitionForms)
-      let tunes = flatPartition(this.partitionForms).map((n) => n.tune)
-      this.scale = getSuroundingTunes(tunes).sort((a,b)=>getLevel(b)-getLevel(a));
+      let tunes = compositionUtils.flatPartition(this.partitionForms).map((n) => n.tune)
+      this.scale = harmoniqueUtils.getSuroundingTunes(tunes).sort((a,b)=>harmoniqueUtils.getLevel(b)-harmoniqueUtils.getLevel(a));
     }
   }
 
