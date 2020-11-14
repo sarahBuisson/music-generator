@@ -14,7 +14,7 @@ const defaults = {
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].js",
-        library: "Tone",
+        library: "music-generator",
         libraryTarget: "umd",
         globalObject: "typeof self !== 'undefined' ? self : this",
     },
@@ -26,7 +26,6 @@ const defaults = {
             {
                 test: /\.ts$/,
                 use: "ts-loader",
-                exclude: /(node_modules)/,
             }
         ]
     },
